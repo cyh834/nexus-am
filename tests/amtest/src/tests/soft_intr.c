@@ -1,5 +1,11 @@
 #include <amtest.h>
+
+#if defined(__ARCH_RISCV64_CYH)
+#include <cyh.h>
+#else
 #include <xs.h>
+#endif
+
 #include <nemu.h>
 
 #if defined(__ARCH_RISCV64_NOOP) || defined(__ARCH_RISCV64_XS) || defined(__ARCH_RISCV64_XS_SOUTHLAKE) || defined(__ARCH_RISCV64_XS_SOUTHLAKE_FLASH)

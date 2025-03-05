@@ -1,5 +1,10 @@
 #include <amtest.h>
+
+#if defined(__ARCH_RISCV64_CYH)
+#include <cyh.h>
+#else
 #include <xs.h>
+#endif
 
 #define READ_WORD(addr)        (*((volatile uint32_t *)(addr)))
 #define WRITE_WORD(addr, data) (*((volatile uint32_t *)(addr)) = (data))

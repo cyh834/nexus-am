@@ -2,18 +2,26 @@ include $(AM_HOME)/am/arch/isa/riscv64.mk
 
 AM_SRCS := cyh/isa/riscv/trm.c \
            cyh/common/mainargs.S \
-           cyh/common/uartlite.c \
+           noop/isa/riscv/perf.c \
+           noop/common/uartlite.c \
+           nemu/isa/riscv/cte.c \
+           nemu/isa/riscv/trap.S \
+           nemu/isa/riscv/cte64.c \
+           nemu/isa/riscv/mtime.S \
+           nemu/isa/riscv/vme.c \
            cyh/common/ioe.c \
-           cyh/common/timer.c \
-           dummy/input.c \
-           dummy/video.c \
-           dummy/audio.c \
-           dummy/cte.c \
-           dummy/vme.c \
-           dummy/mpe.c \
-           cyh/isa/riscv/boot/start.S
+           noop/common/input.c \
+           noop/common/timer.c \
+           noop/isa/riscv/instr.c \
+           cyh/isa/riscv/mpe.c \
+           cyh/isa/riscv/clint.c \
+           cyh/isa/riscv/pmp.c \
+           cyh/isa/riscv/plic.c \
+           cyh/isa/riscv/pma.c \
+           cyh/isa/riscv/cache.c \
+           cyh/isa/riscv/boot/start.S \
 
-CFLAGS  += -I$(AM_HOME)/am/src/cyh/include -DISA_H=\"riscv.h\"
+CFLAGS  += -I$(AM_HOME)/am/src/nemu/include -I$(AM_HOME)/am/src/cyh/include -DISA_H=\"riscv.h\"
 
 ASFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/cyh/common/mainargs.S

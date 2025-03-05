@@ -1,5 +1,10 @@
 #include <amtest.h>
+
+#if defined(__ARCH_RISCV64_CYH)
+#include <cyh.h>
+#else
 #include <xs.h>
+#endif
 
 enum {
   s_idle,
